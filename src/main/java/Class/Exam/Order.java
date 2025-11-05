@@ -2,8 +2,9 @@ package Class.Exam;
 
 public class Order {
     String OrderID, CustomerName, ProductName;
-    double Price, TotalPrice;
-    int Quantity;
+    private double Price;
+    private int Quantity;
+    private double TotalPrice;
 
     public String getOrderID() {
         return OrderID;
@@ -24,12 +25,24 @@ public class Order {
         this.ProductName = productName;
     }
 
+    public Order(String OrderID, String CustomerName, String ProductName, double Price, int Quantity, double TotalPrice) {
+        this.OrderID = OrderID;
+        this.CustomerName = CustomerName;
+        this.ProductName = ProductName;
+        this.Price = Price;
+        this.Quantity = Quantity;
+        this.TotalPrice = Price * Quantity;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
                 "OrderID='" + OrderID + '\'' +
                 ",CustomerName" + CustomerName + '\'' +
                 ",ProductName" + ProductName + '\'' +
+                ",Price" + Price + '\'' +
+                ",Quantity" + Quantity + '\'' +
+                ",TotalPrice" + TotalPrice + '\'' +
                 '}';
     }
 }
