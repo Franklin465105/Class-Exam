@@ -22,11 +22,11 @@ public class OrderApp {
 
             if (choice == 1) {
                 System.out.println ("Enter Order ID");
-                String orderID = sc.nextLine();
+                String P = sc.nextLine();
 
                 boolean exists = false;
                 for(OrderApp orderApp : orderAppList){
-                    if(orderApp.(OrderApp).equals(orderID)) {
+                    if(orderApp.OrderApp().equals(P)) {
                         exists = true;
                     }
                 }
@@ -39,6 +39,15 @@ public class OrderApp {
                 String CustomerName = sc.nextLine();
                 System.out.println("Enter New Product Name");
                 String ProductName = sc.nextLine();
+                OrderApp orderApp = new OrderApp();
+                orderApp.setOrderID(OrderID);
+                orderApp.setCustomerName(OrderID);
+                orderApp.setProductName(OrderID);
+                orderAppList.add(orderApp);
+                System.out.println("Enter Price");
+                // setPrice(sc.nextLine());
+                System.out.println("Enter Quantity");
+                // setQuantity(sc.nextLine());
 
                 OrderApp newOrderApp = new OrderApp(OrderID, CustomerName, ProductName);
                 orderAppList.add(newOrderApp);
@@ -46,12 +55,12 @@ public class OrderApp {
           }
          else if (choice == 2) {
                 System.out.println("Enter new Order ID to update");
-                String orderID = sc.nextLine();
+                String P = sc.nextLine();
 
                 OrderApp found = null;
 
                 for(OrderApp orderApp : orderAppList){
-                    if(orderApp.getOrderID().equals(orderID)) {
+                    if(orderApp.getOrderID().equals(P)) {
                         found = orderApp;
                     }
                 }
@@ -64,6 +73,11 @@ public class OrderApp {
                     found.setCustomerName(sc.nextLine());
                     System.out.println("Enter New Product Name");
                     found.setProductName(sc.nextLine());
+                    System.out.println("Enter New Price");
+                    found.setPrice(sc.nextLine());
+                    System.out.println("Enter New Quantity");
+                    found.setQuantity(sc.nextLine());
+
                 }
             }
 
@@ -78,4 +92,5 @@ public class OrderApp {
             }
         }
     }
+
 }
