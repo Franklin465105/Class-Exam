@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OrderApp {
-    public OrderApp(String orderID, String customerName, String productName) {
-    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -50,15 +48,34 @@ public class OrderApp {
                 System.out.println("Enter new Order ID to update");
                 String orderID = sc.nextLine();
 
+                OrderApp found = null;
 
+                for(OrderApp orderApp : orderAppList){
+                    if(orderApp.getOrderID().equals(orderID)) {
+                        found = orderApp;
+                    }
+                }
+                if (found != null) {
+                    System.out.println("Not Found.");
+                }  else {
+                    System.out.println("Enter a new Order ID");
+                    found.setOrderID(sc.nextLine());
+                    System.out.println("Enter New Customer Name");
+                    found.setCustomerName(sc.nextLine());
+                    System.out.println("Enter New Product Name");
+                    found.setProductName(sc.nextLine());
+                }
             }
 
+         else if (choice == 3) {
+             for(OrderApp orderApp : orderAppList){
+                 System.out.println(orderApp.toString());
+             }
+            }
 
+         else if (choice == 4) {
+             break;
+            }
         }
-
-
-
     }
-
-
 }
